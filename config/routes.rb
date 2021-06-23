@@ -10,5 +10,4 @@ Rails
       end
     end
     root 'beers#index'
-    # resources :beers
   end

@@ -2,6 +2,8 @@
 class Api::V1::BeersController < ApplicationController
   before_action :set_beer, only: [:show, :edit, :update, :destroy]
 
+  # before_action :validate_params, only: [:create]
+
   # GET /beers
   # GET /beers.json
   def index
@@ -32,7 +34,7 @@ class Api::V1::BeersController < ApplicationController
   def create
     @beer = Beer.new(beer_params)
 
-    if @beer.save
+    if @beer.save!
       render json: @beer
     else
       render json: @beer.errors
@@ -62,4 +64,8 @@ class Api::V1::BeersController < ApplicationController
   def beer_params
     params.permit(:brand, :style, :country, :quantity)
   end
+
+  # def validate_params
+  #   params.require(:brand, :style, :country, :quantity)
+  # end
 end
