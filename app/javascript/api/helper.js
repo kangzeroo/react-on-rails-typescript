@@ -1,10 +1,19 @@
 import { useState, useEffect } from "react"
 
+const getCsrfTokenFromMetaTag = () => {
+  return document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+}
+
+const standardHeaders = {
+  'Content-Type': 'application/json',
+  'X-CSRF-TOKEN': getCsrfTokenFromMetaTag()
+}
+
 export const useRestBeers = (latestUpdateDate) => {
   const [status, setStatus] = useState('loading');
   const [queryData, setQueryData] = useState([]);
-  console.log(`Querying for latest data again at ${latestUpdateDate}...`)
   const getBeers = async () => {
+    console.log(`Querying for latest data again at ${latestUpdateDate}...`)
     const url = "api/v1/beers/index"
     const data = await fetch(url)
     console.log(data)
@@ -39,9 +48,7 @@ export const createBeer = async ({
   }
   const status = await fetch(url, {
     method: "POST",
-    headers: {
-      'Content-Type': 'application/json'
-    },
+    headers: standardHeaders,
     body: JSON.stringify(beer)
   })
   console.log(status)
@@ -54,9 +61,7 @@ export const deleteBeer = async (id) => {
     console.log('Attempting delete...')
     const status = await fetch(url, {
       method: "DELETE",
-      headers: {
-        'Content-Type': 'application/json'
-      }
+      headers: standardHeaders
     })
     console.log(status)
     return status

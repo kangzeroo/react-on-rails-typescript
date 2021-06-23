@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useRestBeers, createBeer, deleteBeer } from "../../api/helper"
+import "./beers-list.css"
 
 const BeersList = () => {
   const [latestUpdate, setLatestUpdate] = useState(new Date())
@@ -28,7 +29,7 @@ const BeersList = () => {
   return <div>{beers.map(beer => (
     <div key={beer.id}>
       <p>{JSON.stringify(beer)}</p>
-      <button onClick={removeBeer(beer.id)}>Delete</button>
+      <button className="del" onClick={removeBeer(beer.id)}>Delete</button>
     </div>
   ))}
   <br></br>
