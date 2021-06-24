@@ -105,3 +105,8 @@ config.middleware.use Rack::MethodOverride
 ```
 
 See [full docs](https://guides.rubyonrails.org/api_app.html)
+
+
+## Modelling
+- Beware of the `N + 1 queries problem` when querying associations! use the `Article.includes(:author)` method of `Model.find` call to ensure minimum possible queries to db.
+- `.includes()` can loaded nested associations too!
