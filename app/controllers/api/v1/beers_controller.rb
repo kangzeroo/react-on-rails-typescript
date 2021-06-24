@@ -43,7 +43,13 @@ class Api::V1::BeersController < ApplicationController
 
   # PATCH/PUT /beers/1
   # PATCH/PUT /beers/1.json
-  def update; end
+  def update
+    if @beer.update!(beer_params)
+      render json: @beer
+    else
+      render json: @beer.errors
+    end
+  end
 
   # DELETE /beers/1
   # DELETE /beers/1.json

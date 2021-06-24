@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { useRestBeers, createBeer, deleteBeer } from "../../api/helper";
+import {
+  useRestBeers,
+  createBeer,
+  deleteBeer,
+  updateBeer,
+} from "../../api/helper";
 import "./beers-list.css";
 
 const BeersList = () => {
@@ -30,11 +35,18 @@ const BeersList = () => {
     setLatestUpdate(new Date());
   };
 
+  const incrementBeer = (beer) => async () => {
+    console.log("Update");
+    await updateBeer(beer);
+    setLatestUpdate(new Date());
+  };
+
   return (
     <div>
       {beers.map((beer) => (
         <div key={beer.id}>
           <p>{JSON.stringify(beer)}</p>
+          <button onClick={incrementBeer(beer)}>Update</button>
           <button className="del" onClick={removeBeer(beer.id)}>
             Delete
           </button>

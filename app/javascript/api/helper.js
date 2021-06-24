@@ -77,3 +77,19 @@ export const deleteBeer = async (id) => {
     throw e;
   }
 };
+
+export const updateBeer = async (beer) => {
+  const url = `api/v1/beers/${beer.id}`;
+  try {
+    console.log("Attempting update...");
+    const status = await fetch(url, {
+      method: "PUT",
+      headers: standardHeaders,
+      body: JSON.stringify({ ...beer, quantity: beer.quantity + 1 }),
+    });
+    console.log(status);
+    return status;
+  } catch (e) {
+    throw e;
+  }
+};

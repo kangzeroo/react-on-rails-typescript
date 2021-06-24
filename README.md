@@ -72,3 +72,9 @@ config.action_controller.allow_forgery_protection    = false
 ```
 
 - rails model tests [tutorial](https://semaphoreci.com/community/tutorials/how-to-test-rails-models-with-minitest)
+
+
+## Cheatsheet
+
+- [Concise Rails Cheat Sheet](https://dev.to/ericchapman/my-beloved-ruby-on-rails-cheat-sheet-50pi)
+- [Explanatory Rails Cheat Sheet](https://gist.github.com/mdang/95b4f54cadf12e7e0415)
