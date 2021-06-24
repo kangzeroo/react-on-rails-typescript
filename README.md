@@ -124,3 +124,4 @@ $ git rebase -i [commit-hash]
 $ git rebase -i HEAD~10
 ```
 See [full docs](https://guides.rubyonrails.org/api_app.html)
+- `.includes()` can loaded nested associations too!
