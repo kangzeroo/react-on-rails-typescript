@@ -1,0 +1,37 @@
+{
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  // If not specified searches for 'rubocop' executable available on PATH (default and recommended)
+  "ruby.rubocop.executePath": "",
+
+  // You can use specific path
+  // "ruby.rubocop.executePath": "/Users/you/.rbenv/shims/"
+  // "ruby.rubocop.executePath": "/Users/you/.rvm/gems/ruby-2.3.2/bin/"
+  // "ruby.rubocop.executePath": "D:/bin/Ruby22-x64/bin/"
+
+  // If not specified, it assumes a null value by default.
+  // "ruby.rubocop.configFilePath": ".rubocop.yml",
+
+  // default true
+  "ruby.rubocop.onSave": true,
+  // prettier
+  "[ruby]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "window.zoomLevel": 1,
+  // ignore dependencies on remote watch
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true
+  },
+
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+}

@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "kaiwood.endwise",
+    "ninoseki.vscode-gem-lens",
+    "castwide.solargraph",
+    "esbenp.prettier-vscode",
+    "aki77.rails-db-schema"
+  ]
+}

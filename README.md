@@ -1,3 +1,12 @@
+# Learning Rails in 24 hours
+- Official Docs
+- VSCode Tooling
+- Cheatsheets
+
+# Rails Tooling for VSCode
+- Check `.vscode/*` folder for json pre-configs
+- Especially `aki77.rails-db-schema`, `solargraph` & `rubocop`!!
+
 # Rails Startup Checklist
 
 - check `Gemfile` for `gem 'web-console', '>= 4.1.0'` so that we can use `<% console %>` in `html.erb` files
@@ -46,6 +55,9 @@
   }
 }
 ```
+
+- for better solargraph intellisense, the [code in the gist](https://gist.github.com/castwide/28b349566a223dfb439a337aea29713e) should be added as a Ruby file somewhere that makes it visible to Solargraph, e.g., a file named definitions.rb in the config directory. Since the file only contains comments, Solargraph will process it but it has no impact on the runtime. The comments contain YARD directives that fill some of the gaps in Solargraph’s understanding of the Rails app.
+
 
 ## Access via Remote Machine
 
