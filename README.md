@@ -1,3 +1,12 @@
+# Learning Rails in 24 hours
+- Official Docs
+- VSCode Tooling
+- Cheatsheets
+
+# Rails Tooling for VSCode
+- Check `.vscode/*` folder for json pre-configs
+- Especially `aki77.rails-db-schema`, `solargraph` & `rubocop`!!
+
 # Rails Startup Checklist
 
 - check `Gemfile` for `gem 'web-console', '>= 4.1.0'` so that we can use `<% console %>` in `html.erb` files
@@ -47,6 +56,9 @@
 }
 ```
 
+- for better solargraph intellisense, the [code in the gist](https://gist.github.com/castwide/28b349566a223dfb439a337aea29713e) should be added as a Ruby file somewhere that makes it visible to Solargraph, e.g., a file named definitions.rb in the config directory. Since the file only contains comments, Solargraph will process it but it has no impact on the runtime. The comments contain YARD directives that fill some of the gaps in Solargraph’s understanding of the Rails app.
+
+
 ## Access via Remote Machine
 
 ### SSH
@@ -78,3 +90,36 @@ config.action_controller.allow_forgery_protection    = false
 
 - [Concise Rails Cheat Sheet](https://dev.to/ericchapman/my-beloved-ruby-on-rails-cheat-sheet-50pi)
 - [Explanatory Rails Cheat Sheet](https://gist.github.com/mdang/95b4f54cadf12e7e0415)
+
+## Best Practices
+
+- [6 Ruby Best Practices](https://www.codementor.io/ruby-on-rails/tutorial/6-ruby-best-practices-beginners-should-know)
+- [9 Best Practices for Rails](https://dzone.com/articles/9-best-practices-to-follow-while-coding-in-rails-1)
+
+
+## API Only Rails
+
+Add middleware using:
+```rb
+config.middleware.use Rack::MethodOverride
+```
+
+See [full docs](https://guides.rubyonrails.org/api_app.html)
+
+
+## Modelling
+- Beware of the `N + 1 queries problem` when querying associations! use the `Article.includes(:author)` method of `Model.find` call to ensure minimum possible queries to db.
+- `.includes()` can loaded nested associations too!
+- but dont use `Book.includes(:author).where()`, use `Book.joins(:reviews)` instead... but wait, I dont actually understand this? [read the docss here](https://guides.rubyonrails.org/association_basics.html#belongs-to-association-reference)
+
+
+## Git Squash Best Practices
+- Its good to commit often, but we dont want to pollute the history
+- Thats why its good to use `git squash` to combine minor commits into their major chunks
+
+```
+$ git log
+
+$ git rebase -i [commit-hash]
+$ git rebase -i HEAD~10
+```
