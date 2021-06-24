@@ -111,3 +111,8 @@ See [full docs](https://guides.rubyonrails.org/api_app.html)
 - Beware of the `N + 1 queries problem` when querying associations! use the `Article.includes(:author)` method of `Model.find` call to ensure minimum possible queries to db.
 - `.includes()` can loaded nested associations too!
 - but dont use `Book.includes(:author).where()`, use `Book.joins(:reviews)` instead... but wait, I dont actually understand this? [read the docs here](https://guides.rubyonrails.org/association_basics.html#belongs-to-association-reference)
+
+
+## Git Squash Best Practices
+- Its good to commit often, but we dont want to pollute the history
+- Thats why its good to use `git squash` to combine minor commits into their major chunks
