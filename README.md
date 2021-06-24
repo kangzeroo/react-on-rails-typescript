@@ -78,3 +78,18 @@ config.action_controller.allow_forgery_protection    = false
 
 - [Concise Rails Cheat Sheet](https://dev.to/ericchapman/my-beloved-ruby-on-rails-cheat-sheet-50pi)
 - [Explanatory Rails Cheat Sheet](https://gist.github.com/mdang/95b4f54cadf12e7e0415)
+
+## Best Practices
+
+- [6 Ruby Best Practices](https://www.codementor.io/ruby-on-rails/tutorial/6-ruby-best-practices-beginners-should-know)
+- [9 Best Practices for Rails](https://dzone.com/articles/9-best-practices-to-follow-while-coding-in-rails-1)
+
+
+## API Only Rails
+
+Add middleware using:
+```rb
+config.middleware.use Rack::MethodOverride
+```
+
+See [full docs](https://guides.rubyonrails.org/api_app.html)
