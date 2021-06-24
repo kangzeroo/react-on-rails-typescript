@@ -125,3 +125,4 @@ $ git rebase -i HEAD~10
 ```
 See [full docs](https://guides.rubyonrails.org/api_app.html)
 - `.includes()` can loaded nested associations too!
+- but dont use `Book.includes(:author).where()`, use `Book.joins(:reviews)` instead... but wait, I dont actually understand this? [read the docs here](https://guides.rubyonrails.org/association_basics.html#belongs-to-association-reference)
